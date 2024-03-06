@@ -5,7 +5,7 @@ let state=ref({
   className: "title"
 });
 let handler=function(){
-  state.value.title="new的網站標題";
+  state.value.title="new網站標題";
   state.value.className="newTitle";
 };
 </script>
