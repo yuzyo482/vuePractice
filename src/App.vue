@@ -1,24 +1,25 @@
 <script setup>
 import { ref } from 'vue';
-let state=ref({
-  title: "網站標題",
-  className: "title"
-});
-let handler=function(){
-  state.value.title="new網站標題";
-  state.value.className="newTitle";
+import NavComp from './Nav.vue'
+import MainComp from './Main.vue'
+let subtitle = ref("這是網站標題");
+let updateSubtitle = function(){
+  subtitle.value = "New網站標題";
 };
 </script>
 
 <template>
-  <nav>基本導覽列</nav>
-  <main>
-    <div :class="state.className">{{ state.title }}</div>
-    <button @click="handler">按鈕</button>
-  </main>
+  <NavComp 
+    title="網站標題列"
+    v-bind:subtitle="subtitle"
+    ></NavComp>
+  <MainComp
+    color="white"
+    background-color="black"
+    @update="updateSubtitle"
+    >
+  </MainComp>
 </template>
 
 <style scoped>
-.title{font-weight: bold;}
-.newTitle{color: green;}
 </style>
